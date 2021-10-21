@@ -101,7 +101,7 @@ bool MapGenerator::crearObjetosJuego(string _path)
 					objetoNuevo = new MuroCeramica(texturaMuroMetal, tileNuevo);
 					break;
 				case '3':
-					objetoNuevo = new MuroVegetacion(texturaMuroMetal, tileNuevo);
+					objetoNuevo = new MuroVegetacion(texturaMuroVegetacion, tileNuevo);
 					break;
 					
 				}
