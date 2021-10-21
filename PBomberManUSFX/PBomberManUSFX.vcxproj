@@ -155,6 +155,7 @@
     <ClCompile Include="Muro.cpp" />
     <ClCompile Include="MuroCeramica.cpp" />
     <ClCompile Include="MuroMetal.cpp" />
+    <ClCompile Include="MuroVegetacion.cpp" />
     <ClCompile Include="principal.cpp" />
     <ClCompile Include="SueloCesped.cpp" />
     <ClCompile Include="system\KeyboardInput.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="Muro.h" />
     <ClInclude Include="MuroCeramica.h" />
     <ClInclude Include="MuroMetal.h" />
+    <ClInclude Include="MuroVegetacion.h" />
     <ClInclude Include="Pila.h" />
     <ClInclude Include="SueloCesped.h" />
     <ClInclude Include="system\KeyboardInput.h" />

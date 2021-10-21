@@ -43,6 +43,8 @@ bool MapGenerator::crearObjetosJuego(string _path)
 	texturaMuroCeramica = new Texture();
 	Texture* texturaSueloCesped;
 	texturaSueloCesped = new Texture();
+	Texture* texturaMuroVegetacion;
+	texturaMuroVegetacion = new Texture();
 
 	Texture::renderer = renderer;
 
@@ -51,6 +53,7 @@ bool MapGenerator::crearObjetosJuego(string _path)
 	texturaBomberboy->loadFromImage("resources/bomberman.jpg");
 	texturaMuroCeramica->loadFromImage("resources/muro_ceramica.jpg");
 	texturaMuroMetal->loadFromImage("resources/muro_metal.jpg");
+	texturaMuroVegetacion->loadFromImage("resources/muro_vegetacion.jpg");
 	texturaSueloCesped->loadFromImage("resources/suelo_cesped.jpg");
 
 	int x = 0;
@@ -97,9 +100,10 @@ bool MapGenerator::crearObjetosJuego(string _path)
 				case '2':
 					objetoNuevo = new MuroCeramica(texturaMuroMetal, tileNuevo);
 					break;
-					/*case 'B':
-						objetoNuevo = new Bomberman(texturaBomberman, tileNuevo);
-						break;*/
+				case '3':
+					objetoNuevo = new MuroVegetacion(texturaMuroMetal, tileNuevo);
+					break;
+					
 				}
 
 				if (objetoNuevo != nullptr) {
