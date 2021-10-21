@@ -30,32 +30,37 @@ bool MapGenerator::crearObjetosJuego(string _path)
 	}
 
 	string line;
-	
+
 	Texture* texturaBomberman;
 	texturaBomberman = new Texture();
 	Texture* texturaBomberwoman;
 	texturaBomberwoman = new Texture();
+	Texture* texturaBomberboy;
+	texturaBomberboy = new Texture();
 	Texture* texturaMuroMetal;
 	texturaMuroMetal = new Texture();
 	Texture* texturaMuroCeramica;
 	texturaMuroCeramica = new Texture();
 	Texture* texturaSueloCesped;
 	texturaSueloCesped = new Texture();
-	
+
 	Texture::renderer = renderer;
 
 	texturaBomberman->loadFromImage("resources/bomberman.jpg");
 	texturaBomberwoman->loadFromImage("resources/bomberman.jpg");
+	texturaBomberboy->loadFromImage("resources/bomberman.jpg");
 	texturaMuroCeramica->loadFromImage("resources/muro_ceramica.jpg");
 	texturaMuroMetal->loadFromImage("resources/muro_metal.jpg");
 	texturaSueloCesped->loadFromImage("resources/suelo_cesped.jpg");
-	
+
 	int x = 0;
 	int y = 0;
 	int bombermanPosicionX = -1;
 	int bombermanPosicionY = -1;
 	int bomberwomanPosicionX = -1;
 	int bomberwomanPosicionY = -1;
+	int bomberboyPosicionX = -1;
+	int bomberboyPosicionY = -1;
 
 	while (getline(file, line)) {
 		vector<char> chars(line.begin(), line.end());
@@ -76,6 +81,11 @@ bool MapGenerator::crearObjetosJuego(string _path)
 					if (x > bomberwomanPosicionX || y > bomberwomanPosicionY) {
 						bomberwomanPosicionX = x;
 						bomberwomanPosicionY = y;
+					}
+
+					if (x > bomberboyPosicionX || y > bomberboyPosicionY) {
+						bomberboyPosicionX = x;
+						bomberboyPosicionY = y;
 					}
 
 					//pilaObjetosJuegoMurosMetal.Insertar((GameActor*)objetoNuevo);
@@ -125,10 +135,22 @@ bool MapGenerator::crearObjetosJuego(string _path)
 		((GamePawn*)objetoBomberwoman)->setBotomAbajo(SDLK_s);
 		((GamePawn*)objetoBomberwoman)->setBotomIzquierda(SDLK_a);
 		((GamePawn*)objetoBomberwoman)->setBotomDerecha(SDLK_d);
-
 		vectorObjectosJuego.push_back(objetoBomberwoman);
 	}
 
+	GameObject* objetoBomberboy = nullptr;
+	tileNuevo = tilesGraph->getTileEn(bomberboyPosicionX, bomberboyPosicionY);
+	objetoBomberboy = new Bomberman(texturaBomberboy, tileNuevo);
+	if (objetoBomberboy != nullptr) {
+		((GameActor*)objetoBomberboy)->setPosicionX(bomberboyPosicionX * 34);
+		((GameActor*)objetoBomberboy)->setPosicionY(bomberboyPosicionY * 34);
+		((GamePawn*)objetoBomberboy)->setBotomBomba(SDLK_g);
+		((GamePawn*)objetoBomberboy)->setBotomArriba(SDLK_i);
+		((GamePawn*)objetoBomberboy)->setBotomAbajo(SDLK_k);
+		((GamePawn*)objetoBomberboy)->setBotomIzquierda(SDLK_j);
+		((GamePawn*)objetoBomberboy)->setBotomDerecha(SDLK_l);
+		vectorObjectosJuego.push_back(objetoBomberboy);
+	}
 
 	return false;
 }
