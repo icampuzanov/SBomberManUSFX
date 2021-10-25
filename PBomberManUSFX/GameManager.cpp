@@ -157,9 +157,66 @@ int GameManager::onExecute() {
 	//Free resources and close SDL
 	close();
 
-	std::cout << "Numero de objetos en el vector: " << actoresJuego.size() << std::endl;
-	std::cout << "Numero de objetos creados:" << GameObject::numeroGameObjectCreados << std::endl;
+	//std::cout << "Numero de objetos en el vector: " << actoresJuego.size() << std::endl;
+	//std::cout << "Numero de objetos creados:" << GameObject::numeroGameObjectCreados << std::endl;
 
+	//LABORATORIO 6 
+	//USAR LA FUNCION "MAP" EN ALGUNA
+	cout << "LABORATORIO 6:" << endl;
+	cout << "Ubicacion: GameManager.cpp" << endl;
+
+	int a, b, c, d, primerlugar;
+	
+	a = rand();
+	b = rand();
+	c = rand();
+	d = rand();
+		primerlugar = 0;
+		if (a > b) {
+			if (a > c) {
+				if (a > d) {
+					primerlugar = a;
+				}
+				else {
+					primerlugar = d;
+				}
+			}
+			else {
+				if (c > d) {
+					primerlugar = c;
+				}
+				else {
+					primerlugar = d;
+				}
+			}
+		}
+		else {
+			if (b > c) {
+				if (b > d) {
+					primerlugar = b;
+				}
+				else {
+					primerlugar = d;
+				}
+			}
+			else {
+				if (c > d) {
+					primerlugar = c;
+				}
+				else {
+					primerlugar = d;
+				}
+			}
+		}	
+
+	map <string, float> puntaje;
+	puntaje["Ganador: Carlos"] = primerlugar;
+	puntaje["Walter"] = rand()%100;
+	puntaje["Valeria"] = rand()%100;
+	puntaje["Sebastian"] = rand()%100;
+
+	for (auto i = puntaje.begin(); i != puntaje.end(); ++i)
+		cout << i->first << " tiene: " << i->second << " puntos." << endl;
 	return 0;
 
 }
