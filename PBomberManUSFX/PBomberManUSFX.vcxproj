@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Bomberman.cpp" />
     <ClCompile Include="Detonador.cpp" />
     <ClCompile Include="Enemigo.cpp" />
@@ -155,8 +156,8 @@
     <ClCompile Include="Muro.cpp" />
     <ClCompile Include="MuroCeramica.cpp" />
     <ClCompile Include="MuroMetal.cpp" />
-    <ClCompile Include="MuroVegetacion.cpp" />
     <ClCompile Include="principal.cpp" />
+    <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SueloCesped.cpp" />
     <ClCompile Include="system\KeyboardInput.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -164,6 +165,7 @@
     <ClCompile Include="TilesGraph.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animation.h" />
     <ClInclude Include="Bomberman.h" />
     <ClInclude Include="Detonador.h" />
     <ClInclude Include="Enemigo.h" />
@@ -176,8 +178,8 @@
     <ClInclude Include="Muro.h" />
     <ClInclude Include="MuroCeramica.h" />
     <ClInclude Include="MuroMetal.h" />
-    <ClInclude Include="MuroVegetacion.h" />
     <ClInclude Include="Pila.h" />
+    <ClInclude Include="Sprite.h" />
     <ClInclude Include="SueloCesped.h" />
     <ClInclude Include="system\KeyboardInput.h" />
     <ClInclude Include="Texture.h" />

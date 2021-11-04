@@ -4,7 +4,7 @@ class MuroMetal :
     public GameActor
 {
 public:
-    MuroMetal(Texture* _textura, Tile* _tileActual);
+    MuroMetal(std::shared_ptr<SDL_Texture> _texture, SDL_Renderer* _renderer, Tile* _tileActual);
     void setTileActual(Tile* _tileNuevo);
 };
 

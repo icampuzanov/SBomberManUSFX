@@ -2,14 +2,7 @@
 
 TilesGraph* GameActor::tilesGraph = nullptr;
 
-GameActor::GameActor() :GameObject() {
-	posicionX = 0;
-	posicionY = 0;
-	imagenX = 0;
-	imagenY = 0;
-	ancho = 34;
-	alto = 34;
-
+GameActor::GameActor() :GameObject() , Sprite(nullptr, nullptr){
 	solido = true;
 	indestructible = false;
 	visible = true;
@@ -21,24 +14,15 @@ GameActor::GameActor() :GameObject() {
 
 	velocidad = 1;
 	energia = 100;
-	vidas = 3;
+	vidas = 5;
 
-	textura = nullptr;
 	tileActual = nullptr;
 	tileSiguiente = nullptr;
 	direccionActual = MOVE_DIRECTION_NONE;
 	direccionSiguiente = MOVE_DIRECTION_NONE;
 }
 
-
-GameActor::GameActor(Texture* _textura, Tile* _tileActual) :GameObject() {
-	posicionX = 0;
-	posicionY = 0;
-	imagenX = 0;
-	imagenY = 0;
-	ancho = 34;
-	alto = 34;
-
+GameActor::GameActor(std::shared_ptr<SDL_Texture> _textura, SDL_Renderer* _renderer, Tile* _tileActual) :GameObject(), Sprite(_textura, _renderer) {
 	solido = true;
 	indestructible = false;
 	visible = true;
@@ -52,20 +36,27 @@ GameActor::GameActor(Texture* _textura, Tile* _tileActual) :GameObject() {
 	energia = 100;
 	vidas = 3;
 
-	textura = _textura;
 	tileActual = _tileActual;
 	tileSiguiente = nullptr;
 	direccionActual = MOVE_DIRECTION_NONE;
 	direccionSiguiente = MOVE_DIRECTION_NONE;
 }
 
-void GameActor::render()
-{
+
+void GameActor::render(SDL_Rect& _camera) {
 	if (visible) {
-		SDL_Rect* cuadroAnimacion = new SDL_Rect({ imagenX, imagenY, getAncho(), getAlto() });
-		textura->render(getPosicionX(), getPosicionY(), cuadroAnimacion);
+		Sprite::render(_camera);
 	}
 }
+
+void GameActor::update(const unsigned int delta)
+{
+	Sprite::update(delta);
+
+	animacion->play();
+
+}
+
 
 bool GameActor::tratarDeMover(MoveDirection _direccionNueva) {
 
@@ -100,12 +91,6 @@ bool GameActor::tratarDeMover(MoveDirection _direccionNueva) {
 	}
 
 	if (tileDestino->getMuroCeramica() != nullptr)
-	{
-		setTileSiguiente(nullptr);
-		return false;
-	}
-
-	if (tileDestino->getMuroVegetacion() != nullptr)
 	{
 		setTileSiguiente(nullptr);
 		return false;

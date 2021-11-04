@@ -8,10 +8,8 @@
 #include "MuroCeramica.h"
 #include "MuroMetal.h"
 #include "SueloCesped.h"
-#include "MuroVegetacion.h"
 #include "Tile.h"
 #include "TilesGraph.h"
-#include "Pila.h"
 
 class MapGenerator
 {

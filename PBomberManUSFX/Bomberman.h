@@ -10,11 +10,11 @@ private:
 
 public:
 	//Constructor
-	Bomberman(Texture* _textura, Tile* _tileActual);
+	Bomberman(std::shared_ptr<SDL_Texture> _texture, SDL_Renderer* _renderer, Tile* _tileActual);
+	
 	void setTileActual(Tile* _tileNuevo) override;
-
-	void update();
-	void render();
+	void render(SDL_Rect& _camera);
+	void update(const unsigned int _delta);
 
 };
 
