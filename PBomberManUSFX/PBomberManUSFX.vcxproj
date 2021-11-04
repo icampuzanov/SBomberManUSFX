@@ -152,7 +152,6 @@
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GamePawn.cpp" />
-    <ClCompile Include="Managers\SceneManager.cpp" />
     <ClCompile Include="MapGenerator.cpp" />
     <ClCompile Include="Muro.cpp" />
     <ClCompile Include="MuroCeramica.cpp" />
@@ -175,7 +174,6 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GamePawn.h" />
-    <ClInclude Include="Managers\SceneManager.h" />
     <ClInclude Include="MapGenerator.h" />
     <ClInclude Include="Muro.h" />
     <ClInclude Include="MuroCeramica.h" />
