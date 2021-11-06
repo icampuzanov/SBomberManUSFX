@@ -55,6 +55,8 @@ private:
     int windowWidth = 0; //// inclui
     int windowHeight = 0; //// inclui
 
+    SDL_Renderer* renderer = nullptr;
+
 public:
     // Constructores & destructores
     GameManager();
@@ -78,7 +80,8 @@ public:
     SceneManager* getSceneManager() const ; //const ///  MUCHO OJO
     AssetManager* getAssetManager()const ;/// const /// MUCHO OJO
 
-    
+    SDL_Renderer* getRenderer() const;
+
     void stop();///////////////////
     void run();//////////////////
     GameManager(const std::string& windowName, const int windowWidth, const int windowHeight);

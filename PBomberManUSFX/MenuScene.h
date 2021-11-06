@@ -33,7 +33,7 @@ class GameManager;
          *
          * @param game
          */
-        MenuScene(GameManager* gameManager);
+        MenuScene(GameManager* game);
         /**
          * @brief Called when scene was activated
          *

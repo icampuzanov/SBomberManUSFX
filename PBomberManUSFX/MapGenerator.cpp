@@ -1,6 +1,48 @@
 #include "MapGenerator.h"
 #include "Texture.h"
 
+#include <algorithm>
+#include <chrono>
+#include <functional>
+#include <random>
+#include <string>
+
+#include "GameManager.h"
+#include "StageScene.h"
+
+//void MapGenerator::finish() const
+//{
+//	//menuMusic->stop();
+//	if (isWin)
+//	{
+//		//winSound->play();
+//		game->getSceneManager()->addScene("stage", std::make_shared<StageScene>(game, stage + 1, score));
+//		game->getSceneManager()->activateScene("stage");
+//	}
+//	else
+//	{
+//		//gameoverSound->play();
+//		game->getSceneManager()->activateScene("gameover");
+//	}
+//	game->getSceneManager()->removeScene("level");
+//}
+
+//void MapGenerator::gameOver()
+//{
+//	//menuMusic->stop();
+//	//gameOverTimer = gameOverTimerStart;
+//	isGameOver = true;
+//}
+
+void MapGenerator::exit() const
+{
+	//menuMusic->stop();
+	game->getSceneManager()->activateScene("menu");
+	game->getSceneManager()->removeScene("level");
+}
+
+
+
 MapGenerator::MapGenerator()
 {
 	anchoPantalla = 0;

@@ -200,6 +200,11 @@ AssetManager* GameManager::getAssetManager()const//borre el const
 	return assetManager;
 }
 
+SDL_Renderer* GameManager::getRenderer() const
+{
+	return renderer;
+}
+
 void GameManager::stop()
 {
 	enEjecucion = false; // en ves de isRunning

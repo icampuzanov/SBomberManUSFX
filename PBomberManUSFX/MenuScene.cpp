@@ -51,26 +51,26 @@
         // background
         auto background = std::make_shared<Text>(game->getAssetManager()->getTexture(Texture::MenuBack),
             game->getgRenderer());
-        background->setPosition(30, 20);
-        background->setSize(game->getWindowWidth() - 60,
+        background->setPosition_(30, 20);
+        background->setSize_(game->getWindowWidth() - 60,
         static_cast<int>(game->getWindowHeight() / 1.5f) - 20);
         addObject(background);
 
         // start menu
         startText = std::make_shared<Text>(game->getAssetManager()->getFont(), game->getRenderer(), "START");
         startText->setColor(colorPressed);
-        startText->setSize(static_cast<int>(game->getWindowWidth() / 4.0f),
+        startText->setSize_(static_cast<int>(game->getWindowWidth() / 4.0f),
             static_cast<int>(game->getWindowHeight() / 20.0f));
-        startText->setPosition(static_cast<int>(game->getWindowWidth() / 2.0f - startText->getWidth() / 2.0f),
+        startText->setPosition_(static_cast<int>(game->getWindowWidth() / 2.0f - startText->getWidth() / 2.0f),
             background->getHeight() + 60);
         addObject(startText);
 
         // exit menu
-        exitSprite = std::make_shared<Text>(game->getAssetManager()->getFont(), game->getRenderer(), "EXIT");
-        exitText->setSize(static_cast<int>(game->getWindowWidth() / 4.0f),
+        exitText = std::make_shared<Text>(game->getAssetManager()->getFont(), game->getRenderer(), "EXIT");
+        exitText->setSize_(static_cast<int>(game->getWindowWidth() / 4.0f),
             static_cast<int>(game->getWindowHeight() / 20.0f));
-        exitText->setPosition(startText->getPositionX(),
-            startText->getPositionY() + exitText->getHeight() + 40);
+        exitText->setPosition_(startText->getPositionX_(),
+            startText->getPositionY_() + exitText->getHeight() + 40);
         addObject(exitText);
 
         //game->getSceneManager()->addScene("gameover", std::make_shared<GameOverScene>(game));

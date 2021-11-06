@@ -43,6 +43,16 @@ public:
 	GameObject(SDL_Renderer* renderer);////ojo doble constructor parece
 	virtual ~GameObject();/// x2
 	void attachToCamera(bool isAttached = true);
+	void setSize_(const int width, const int height);
+	void setPosition_(const int x, const int y);
+	void setClip(const int width, const int height, const int x, const int y);
+	//void attachToCamera(bool isAttached = true);
+	int getWidth() const;
+	int getHeight() const;
+	int getPositionX_() const;
+	int getPositionY_() const;
+	const SDL_Rect& getRect() const;
+	void setFlip(SDL_RendererFlip flip);
 											   
 	//////////////////////////
 	// Metodos varios

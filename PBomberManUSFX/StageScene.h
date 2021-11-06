@@ -7,8 +7,8 @@
 #include "Text.h"
 #include "Scene.h"
 
-namespace bomberman
-{
+//namespace bomberman
+//{
     /**
      * @brief Stage Scene
      *
@@ -37,7 +37,7 @@ namespace bomberman
         unsigned int stage = 0;
         unsigned int score = 0;
     };
-} // namespace bomberman
+//} // namespace bomberman
 
 //#endif // _BOMBERMAN_SCENES_STAGE_SCENE_H_
 
