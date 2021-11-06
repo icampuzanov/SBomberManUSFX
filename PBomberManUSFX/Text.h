@@ -1,19 +1,16 @@
-#ifndef _BOMBERMAN_ENTITIES_TEXT_H_
-#define _BOMBERMAN_ENTITIES_TEXT_H_
 
 #include <SDL_ttf.h>
 
-#include "../Entities/Object.h"
+#include "GameObject.h"
 
-namespace bomberman
-{
+
     /**
      * @brief Text object
      *
      */
-    class Text : public Object
+    class Text : public GameObject
     {
-      public:
+    public:
         /**
          * @brief Construct a new Text object
          *
@@ -35,7 +32,7 @@ namespace bomberman
          */
         void setColor(const SDL_Color& color);
 
-      private:
+    private:
         /**
          * @brief load text to texture if text or color was changed
          *
@@ -44,8 +41,10 @@ namespace bomberman
 
         std::shared_ptr<TTF_Font> font = nullptr; // SDL2 font
         std::string text;                         // text to display
-        SDL_Color color = {255, 255, 255, 255};   // color of text
+        SDL_Color color = { 255, 255, 255, 255 };   // color of text
     };
-} // namespace bomberman
+ // namespace bomberman
 
-#endif // _BOMBERMAN_ENTITIES_TEXT_H_
+
+
+

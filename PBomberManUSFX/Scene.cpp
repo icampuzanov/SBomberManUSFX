@@ -1,29 +1,29 @@
 #include <algorithm>
 
-#include "../Scenes/Scene.h"
+#include "Scene.h"
 
-namespace bomberman
-{
-    Scene::Scene(Game* _game)
+//namespace bomberman
+//{
+    Scene::Scene(GameManager* _gameManager)
     {
-        this->game = _game;
+        this->game = _gameManager;
         // set camera to up-left position
-        camera = {0, 0, 0, 0};
+        camera = { 0, 0, 0, 0 };
     }
 
     Scene::~Scene() {}
 
-    void Scene::addObject(std::shared_ptr<Object> object)
+    void Scene::addObject(std::shared_ptr<GameObject> object)
     {
         objects.push_back(std::move(object));
     }
 
-    void Scene::insertObject(std::shared_ptr<Object> object, int position)
+    void Scene::insertObject(std::shared_ptr<GameObject> object, int position)
     {
         objects.insert(objects.begin() + position, object);
     }
 
-    void Scene::removeObject(std::shared_ptr<Object> object)
+    void Scene::removeObject(std::shared_ptr<GameObject> object)
     {
         objects.erase(std::remove(objects.begin(), objects.end(), object), objects.end());
     }
@@ -42,17 +42,21 @@ namespace bomberman
 
     void Scene::update(const unsigned int delta)
     {
-        for(auto& object : objects)
+        for (auto& object : objects)
         {
             object->update(delta);
         }
     }
 
-    void Scene::draw() const
+    void Scene::render() const
     {
-        for(const auto& object : objects)
+        for (const auto& object : objects)
         {
-            object->draw(camera);
+            object->render(camera);
         }
     }
-} // namespace bomberman
+
+  
+      
+  //}
+//} // namespace bomberman

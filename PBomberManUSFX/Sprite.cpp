@@ -102,7 +102,7 @@ void Sprite::render(const SDL_Rect& _camera) const
             destrinationRect.x -= _camera.x;
             destrinationRect.y -= _camera.y;
         }
-        // draw on the screen
+        // Render on the screen
         SDL_RenderCopyEx(renderer, texture.get(), &clip, &destrinationRect, 0, nullptr, flipping);
     }
 }

@@ -1,15 +1,15 @@
-#ifndef _BOMBERMAN_SCENES_MENU_SCENE_H_
-#define _BOMBERMAN_SCENES_MENU_SCENE_H_
+
 
 #include <SDL.h>
 #include <memory>
 
-#include "../Entities/Music.h"
-#include "../Entities/Text.h"
-#include "../Scenes/Scene.h"
+//#include "Music.h"
+#include "Text.h"
+#include "Scene.h"
 
-namespace bomberman
-{
+//namespace bomberman
+//{
+class GameManager;
     /**
      * @brief Menu id
      *
@@ -27,23 +27,23 @@ namespace bomberman
      */
     class MenuScene : public Scene
     {
-      public:
+    public:
         /**
          * @brief Construct a new Menu Scene
          *
          * @param game
          */
-        MenuScene(Game* game);
+        MenuScene(GameManager* gameManager);
         /**
          * @brief Called when scene was activated
          *
          */
-        virtual void onEnter() override;
+        //virtual void onEnter() override;
         /**
          * @brief Called when scene was deactivated
          *
          */
-        virtual void onExit() override;
+      //  virtual void onExit() override;
         /**
          * @brief Trigger on SDL2 event if scene is active
          *
@@ -51,7 +51,7 @@ namespace bomberman
          */
         virtual void onEvent(const SDL_Event& event) override;
 
-      private:
+    private:
         /**
          * @brief called when menu item was selected
          *
@@ -65,13 +65,13 @@ namespace bomberman
 
         std::shared_ptr<Text> startText = nullptr;      // menu start
         std::shared_ptr<Text> exitText = nullptr;       // menu exit
-        std::shared_ptr<Music> menuMusic = nullptr;     // menu music
+        //std::shared_ptr<Music> menuMusic = nullptr;     // menu music
         MenuItem currentSelectedMenu = MenuItem::Start; // current selected menu
 
         // const colors for menu selection
-        const SDL_Color colorStandard = {255, 255, 255, 255};
-        const SDL_Color colorPressed = {66, 134, 244, 255};
+        const SDL_Color colorStandard = { 255, 255, 255, 255 };
+        const SDL_Color colorPressed = { 66, 134, 244, 255 };
     };
-} // namespace bomberman
+//} // namespace bomberman
 
-#endif // _BOMBERMAN_SCENES_MENU_SCENE_H_
+

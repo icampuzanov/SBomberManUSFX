@@ -1,22 +1,21 @@
-#ifndef _BOMBERMAN_MANAGERS_SCENE_MANAGER_H_
-#define _BOMBERMAN_MANAGERS_SCENE_MANAGER_H_
+
 
 #include <memory>
 #include <queue>
 #include <string>
 #include <unordered_map>
 
-#include "../Scenes/Scene.h"
+#include "Scene.h"
 
-namespace bomberman
-{
+//namespace bomberman
+//{
     /**
      * @brief Scene Manager
      *
      */
     class SceneManager
     {
-      public:
+    public:
         /**
          * @brief Construct a new Scene Manager object
          *
@@ -54,16 +53,18 @@ namespace bomberman
          */
         void update(const unsigned int delta);
         /**
-         * @brief draw objects of active scene
+         * @brief Render objects of active scene
          *
          */
-        void draw() const;
+        void render()const; ///borre const
 
-      private:
+    private:
         std::unordered_map<std::string, std::shared_ptr<Scene>> scenes; // scenes
         std::queue<std::shared_ptr<Scene>> removedScenes;               // removed scenes, for clean up
         std::shared_ptr<Scene> currentScene = nullptr;                  // active scene
     };
-} // namespace bomberman
+//} /// namespace bomberman
 
-#endif // _BOMBERMAN_MANAGERS_SCENE_MANAGER_H_
+//#endif // _BOMBERMAN_MANAGERS_SCENE_MANAGER_H_
+
+

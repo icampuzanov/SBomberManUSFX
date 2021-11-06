@@ -9,7 +9,7 @@ using namespace std;
 
 int main(int argc, char* args[])
 {
-	bomberman::GameManager* gm01 = new bomberman::GameManager();
+	GameManager* gm01 = new GameManager();
 	
 	return gm01->onExecute();
 }

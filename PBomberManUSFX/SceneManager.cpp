@@ -1,18 +1,18 @@
 #include <iostream>
 
-#include "../Managers/SceneManager.h"
+#include "SceneManager.h"
 
-namespace bomberman
-{
+//namespace bomberman
+//{
     SceneManager::SceneManager() {}
 
     void SceneManager::addScene(const std::string& name, const std::shared_ptr<Scene> scene)
     {
         const auto it = scenes.find(name);
-        if(it != scenes.end() && it->second)
+        if (it != scenes.end() && it->second)
         {
             std::cout << "SceneManager::addScene - scene '" << name << "' already exist in scene tree!"
-                      << std::endl;
+                << std::endl;
             return;
         }
         scenes[name] = std::move(scene);
@@ -22,9 +22,9 @@ namespace bomberman
     {
         // try to find scene by name
         const auto it = scenes.find(name);
-        if(it != scenes.end())
+        if (it != scenes.end())
         {
-            if(currentScene)
+            if (currentScene)
             {
                 currentScene->onExit();
             }
@@ -41,9 +41,9 @@ namespace bomberman
     {
         // try to find scene by name
         const auto it = scenes.find(name);
-        if(it != scenes.end())
+        if (it != scenes.end())
         {
-            if(it->second == currentScene)
+            if (it->second == currentScene)
             {
                 currentScene->onExit();
                 currentScene = nullptr;
@@ -66,7 +66,7 @@ namespace bomberman
     void SceneManager::update(const unsigned int delta)
     {
         // finally remove removed scenes
-        while(removedScenes.size() > 0)
+        while (removedScenes.size() > 0)
         {
             removedScenes.pop();
         }
@@ -74,8 +74,10 @@ namespace bomberman
         currentScene->update(delta);
     }
 
-    void SceneManager::draw() const
+//} // namespace bomberman
+
+    void SceneManager::render() const
     {
-        currentScene->draw();
+        currentScene->render();
     }
-} // namespace bomberman
+    ///////////////

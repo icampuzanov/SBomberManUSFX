@@ -1,27 +1,27 @@
-#ifndef _BOMBERMAN_SCENES_GAME_OVER_SCENE_H_
-#define _BOMBERMAN_SCENES_GAME_OVER_SCENE_H_
+//#ifndef _BOMBERMAN_SCENES_STAGE_SCENE_H_
+//#define _BOMBERMAN_SCENES_STAGE_SCENE_H_
 
 #include <SDL.h>
 #include <memory>
 
-#include "../Entities/Text.h"
-#include "../Scenes/Scene.h"
+#include "Text.h"
+#include "Scene.h"
 
 namespace bomberman
 {
     /**
-     * @brief Game Over Scene
+     * @brief Stage Scene
      *
      */
-    class GameOverScene : public Scene
+    class StageScene : public Scene
     {
-      public:
+    public:
         /**
-         * @brief Construct a new Game Over Scene
+         * @brief Construct a new Stage Scene
          *
          * @param game
          */
-        GameOverScene(Game* game);
+        StageScene(GameManager* game, const unsigned int level, const unsigned int score);
         /**
          * @brief Trigger on update if scene is active
          *
@@ -29,12 +29,15 @@ namespace bomberman
          */
         virtual void update(const unsigned int delta) override;
 
-      private:
+    private:
         // timer until switch to next menu
         int untilNextSceneTimer = 0;
         // const
         const int sceneTimer = 2000;
+        unsigned int stage = 0;
+        unsigned int score = 0;
     };
 } // namespace bomberman
 
-#endif // _BOMBERMAN_SCENES_GAME_OVER_SCENE_H_
+//#endif // _BOMBERMAN_SCENES_STAGE_SCENE_H_
+

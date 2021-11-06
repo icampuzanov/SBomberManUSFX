@@ -6,7 +6,7 @@
 #include "Animation.h"
 
 /**
-    * @brief Sprite object - for drawable objects
+    * @brief Sprite object - for Renderable objects
     *
 */
 
@@ -17,7 +17,7 @@ protected:
     std::shared_ptr<SDL_Texture> texture = nullptr; // SDL2 texture
     //SDL_Texture* texture = nullptr;               // SDL2 texture
     SDL_Rect rect;                                  // size and position of texture on the screen
-    SDL_Rect clip;                                  // what part of texture to draw on the screen
+    SDL_Rect clip;                                  // what part of texture to Render on the screen
     SDL_RendererFlip flipping = SDL_FLIP_NONE;      // flip of texture
 
 private:
@@ -115,7 +115,7 @@ public:
      */
     virtual void update(const unsigned int _delta);
     /**
-     * @brief Draw object on the screen
+     * @brief Render object on the screen
      *
      * @param SDL_Rect - camera position
      */

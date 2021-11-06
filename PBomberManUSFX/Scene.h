@@ -1,27 +1,26 @@
-#ifndef _BOMBERMAN_SCENES_SCENE_H_
-#define _BOMBERMAN_SCENES_SCENE_H_
+
 
 #include <SDL.h>
 #include <vector>
 
-#include "../Entities/Object.h"
+#include "GameObject.h"
 
-namespace bomberman
-{
-    class Game;
+//namespace bomberman
+//{
+    class GameManager;
     /**
      * @brief Scene base class
      *
      */
     class Scene
     {
-      public:
-        /**
+    public:
+        /*
          * @brief Construct a new Scene object
          *
          * @param game - pointer to game
          */
-        Scene(Game* game);
+        Scene(GameManager* game);
         /**
          * @brief Destroy the Scene object
          *
@@ -32,20 +31,20 @@ namespace bomberman
          *
          * @param object
          */
-        void addObject(std::shared_ptr<Object> object);
+        void addObject(std::shared_ptr<GameObject> object);
         /**
          * @brief Add object to scene for drawing to specific position
          *
          * @param object
          * @param position - position where to insert object
          */
-        void insertObject(std::shared_ptr<Object> object, int position);
+        void insertObject(std::shared_ptr<GameObject> object, int position);
         /**
          * @brief Remove object from scene
          *
          * @param object
          */
-        void removeObject(std::shared_ptr<Object> object);
+        void removeObject(std::shared_ptr<GameObject> object);
         /**
          * @brief Set the Camera object to specific position
          *
@@ -76,18 +75,19 @@ namespace bomberman
          */
         virtual void update(const unsigned int delta);
         /**
-         * @brief Draw objects on the screen
+         * @brief render objects on the screen
          *
          */
-        void draw() const;
+        void render() const;
 
-      protected:
-        Game* game = nullptr; // pointer to game for use in all scenes
+    protected:
+        GameManager* game = nullptr; // pointer to game for use in all scenes
 
-      private:
-        std::vector<std::shared_ptr<Object>> objects; // objects to update and draw
+    private:
+        std::vector<std::shared_ptr<GameObject>> objects; // objects to update and draw
         SDL_Rect camera;                              // camera position
     };
-} // namespace bomberman
+//} // namespace bomberman
 
-#endif // _BOMBERMAN_SCENES_SCENE_H_
+//#endif // _BOMBERMAN_SCENES_SCENE_H_
+
