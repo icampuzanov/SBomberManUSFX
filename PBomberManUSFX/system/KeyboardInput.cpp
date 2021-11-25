@@ -6,7 +6,7 @@
 #include<iostream>
 #endif // DEBUG_OUTPUT_KEYBOARD_INPUT
 
-KeyboardInput* KeyboardInput::s_instance;
+KeyboardInput* KeyboardInput::s_instance = 0;
 
 KeyboardInput::KeyboardInput()
 {
@@ -14,13 +14,13 @@ KeyboardInput::KeyboardInput()
 
 KeyboardInput* KeyboardInput::Instance()
 {
-    #ifdef DEBUG_OUTPUT_KEYBOARD_INPUT
-    std::cout << "Called for KeyboardInput::Instance()" << std::endl;
-    #endif // DEBUG_OUTPUT_KEYBOARD_INPUT
+    //#ifdef DEBUG_OUTPUT_KEYBOARD_INPUT
+    //std::cout << "Called for KeyboardInput::Instance()" << std::endl;
+    //#endif // DEBUG_OUTPUT_KEYBOARD_INPUT
     if (s_instance == 0) {
-        #ifdef DEBUG_OUTPUT_KEYBOARD_INPUT
-        std::cout << "Made first KeyboardInput" << std::endl;
-        #endif // DEBUG_OUTPUT_KEYBOARD_INPUT
+        //#ifdef DEBUG_OUTPUT_KEYBOARD_INPUT
+        //std::cout << "Made first KeyboardInput" << std::endl;
+        //#endif // DEBUG_OUTPUT_KEYBOARD_INPUT
         s_instance = new KeyboardInput();
     }
     return s_instance;

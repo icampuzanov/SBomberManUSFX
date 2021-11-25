@@ -34,30 +34,30 @@
 //	isGameOver = true;
 //}
 
-void MapGenerator::exit() const
-{
-	//menuMusic->stop();
-	game->getSceneManager()->activateScene("menu");
-	game->getSceneManager()->removeScene("level");
-}
-
-
-
-MapGenerator::MapGenerator()
-{
-	anchoPantalla = 0;
-	altoPantalla = 0;
-	renderer = nullptr;
-}
-
-MapGenerator::MapGenerator(SDL_Renderer* _renderer, int _anchoPantalla, int _altoPantalla, TilesGraph* _tilesGraph):
-	anchoPantalla(_anchoPantalla),
-	altoPantalla(_altoPantalla),
-	renderer(_renderer),
-	tilesGraph(_tilesGraph)
-{
-	
-}
+//void MapGenerator::exit() const
+//{
+//	//menuMusic->stop();
+//	game->getSceneManager()->activateScene("menu");
+//	game->getSceneManager()->removeScene("level");
+//}
+//
+//
+//
+//MapGenerator::MapGenerator()
+//{
+//	anchoPantalla = 0;
+//	altoPantalla = 0;
+//	renderer = nullptr;
+//}
+//
+//MapGenerator::MapGenerator(SDL_Renderer* _renderer, int _anchoPantalla, int _altoPantalla, TilesGraph* _tilesGraph):
+//	anchoPantalla(_anchoPantalla),
+//	altoPantalla(_altoPantalla),
+//	renderer(_renderer),
+//	tilesGraph(_tilesGraph)
+//{
+//	
+//}
 
 bool MapGenerator::crearObjetosJuego(string _path)
 {

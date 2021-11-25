@@ -13,7 +13,7 @@
 #include "TilesGraph.h"
 
 
-class MapGenerator : public Scene
+class MapGenerator
 {
 
 private:
@@ -24,23 +24,23 @@ private:
 	int altoPantalla;
 	SDL_Renderer* renderer;
 	TilesGraph* tilesGraph;
-    //LEVEL SCENE//
-    void finish() const;
-    /**
-     * @brief Game over
-     *
-     */
-    void gameOver();
-    /**
-     * @brief Exit level
-     *
-     */
-    void exit() const;
-    //level scene//
-    // bool flags
-    bool isGameOver = false;
-    bool isPaused = false;
-    bool isWin = false;
+    ////LEVEL SCENE//
+    //void finish() const;
+    ///**
+    // * @brief Game over
+    // *
+    // */
+    //void gameOver();
+    ///**
+    // * @brief Exit level
+    // *
+    // */
+    //void exit() const;
+    ////level scene//
+    //// bool flags
+    //bool isGameOver = false;
+    //bool isPaused = false;
+    //bool isWin = false;
     //
 public:
 	// Constructores y destructores
@@ -64,21 +64,21 @@ public:
 	void transferirObjetosJuego(vector<GameObject*>& _vectorObjetosJuegoDestino);
 
     //LEVEL SCENE//
-    MapGenerator(GameManager* game, const unsigned int stage, const unsigned int prevScore);
-    /**
-     * @brief Catch SDL2 events
-     *
-     * @param event - SDL2 event
-     */
-    virtual void onEvent(const SDL_Event& event) override;
-    /**
-     * @brief Update level scene
-     *
-     * @param delta - delta time since previous update in milliseconds
-     */
-    void update(const unsigned int delta) override;
+    //MapGenerator(GameManager* game, const unsigned int stage, const unsigned int prevScore);
+    ///**
+    // * @brief Catch SDL2 events
+    // *
+    // * @param event - SDL2 event
+    // */
+    //virtual void onEvent(const SDL_Event& event) override;
+    ///**
+    // * @brief Update level scene
+    // *
+    // * @param delta - delta time since previous update in milliseconds
+    // */
+    //void update(const unsigned int delta) override;
 
-    
+    //
     //
 
 };
