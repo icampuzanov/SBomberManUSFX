@@ -9,6 +9,7 @@
 #include <unordered_map>
 
 #include "../GameTextures.h"
+#include "../GameVersions.h"
 /**
     * @brief Enumeration for Texture
     *
@@ -74,6 +75,7 @@ class AssetManager
         * @param renderer - SDL2 Renderer
         */
     void load(SDL_Renderer* renderer);
+    
     /**
         * @brief Get font
         *
@@ -87,7 +89,7 @@ class AssetManager
         *
         * @return std::shared_ptr<SDL_Texture> - loaded texture
         */
-    std::shared_ptr<SDL_Texture> getTexture(Texture texture);
+    std::shared_ptr<SDL_Texture> getTexture(GameTexture texture);
     /**
         * @brief Get music
         *
@@ -116,7 +118,7 @@ class AssetManager
         * @param texture - texture enumerator
         * @param filePath - path to file with texture
         */
-    void loadTexture(SDL_Renderer* renderer, Texture texture, const std::string& filePath);
+    void loadTexture(SDL_Renderer* renderer, GameTexture texture, const std::string& filePath);
     /**
         * @brief load music
         *
@@ -133,7 +135,7 @@ class AssetManager
     void loadSound(SoundEnum sound, const std::string& filePath);
 
     std::shared_ptr<TTF_Font> font = nullptr;                                          // font
-    std::unordered_map<Texture, std::shared_ptr<SDL_Texture>, EnumClassHash> textures; // map of textures
+    std::unordered_map<GameTexture, std::shared_ptr<SDL_Texture>, EnumClassHash> textures; // map of textures
     std::unordered_map<MusicEnum, std::shared_ptr<Mix_Music>, EnumClassHash> musics;       // map of music
     std::unordered_map<SoundEnum, std::shared_ptr<Mix_Chunk>, EnumClassHash> sounds;       // map of sounds
 };

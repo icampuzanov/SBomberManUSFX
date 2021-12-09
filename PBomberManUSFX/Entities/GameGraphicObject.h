@@ -98,7 +98,7 @@ class GameGraphicObject: public GameObject
         *
         * @param SDL_Rect - camera position
         */
-    void render(const SDL_Rect& camera) const;
+    void render(const SDL_Rect& camera);
     virtual void handleEvent(SDL_Event* _event) {};
     protected:
     SDL_Renderer* renderer = nullptr;               // SDL2 renderer

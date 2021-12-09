@@ -142,6 +142,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Adapters\GameObjectPacman.cpp" />
+    <ClCompile Include="Adapters\Texture.cpp" />
+    <ClCompile Include="Adapters\TextureManager.cpp" />
+    <ClCompile Include="Adapters\Tile.cpp" />
+    <ClCompile Include="Adapters\TileGraph.cpp" />
+    <ClCompile Include="Adapters\WallPacman.cpp" />
+    <ClCompile Include="Adapters\WallPacmanAdapter.cpp" />
+    <ClCompile Include="Decorator\BorderDecoratorWall.cpp" />
+    <ClCompile Include="Builder\BuilderClasico.cpp" />
+    <ClCompile Include="Builder\BuilderCartoon.cpp" />
+    <ClCompile Include="Builder\Builder.cpp" />
+    <ClCompile Include="Builder\Director.cpp" />
+    <ClCompile Include="Decorator\DecoratorWall.cpp" />
     <ClCompile Include="Entities\ClasicoEnemy.cpp" />
     <ClCompile Include="Entities\ClasicoPlayer.cpp" />
     <ClCompile Include="Core\Animation.cpp" />
@@ -165,21 +178,40 @@
     <ClCompile Include="Factories\FactoryGameClasico.cpp" />
     <ClCompile Include="Factories\FactoryGamePersonalizado.cpp" />
     <ClCompile Include="Factories\FactoryGameRealista.cpp" />
-    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Scenes\GameLevelScene.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Managers\AssetManager.cpp" />
     <ClCompile Include="Managers\SceneManager.cpp" />
-    <ClCompile Include="Entities\Muro.cpp" />
-    <ClCompile Include="Entities\MuroPiedra.cpp" />
     <ClCompile Include="Scenes\GameOverScene.cpp" />
     <ClCompile Include="Scenes\LevelScene.cpp" />
     <ClCompile Include="Scenes\MenuScene.cpp" />
     <ClCompile Include="Scenes\Scene.cpp" />
     <ClCompile Include="Scenes\StageScene.cpp" />
+    <ClCompile Include="Entities\Soil.cpp" />
+    <ClCompile Include="Entities\SoilGrass.cpp" />
+    <ClCompile Include="Decorator\ShineDecoratorWall.cpp" />
     <ClCompile Include="system\KeyboardInput.cpp" />
     <ClCompile Include="Util\Pathfinding.cpp" />
+    <ClCompile Include="Entities\Wall.cpp" />
+    <ClCompile Include="Entities\WallMetal.cpp" />
+    <ClCompile Include="Entities\WallBrick.cpp" />
+    <ClCompile Include="Entities\WallStone.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Adapters\GameObjectPacman.h" />
+    <ClInclude Include="Adapters\Texture.h" />
+    <ClInclude Include="Adapters\TextureManager.h" />
+    <ClInclude Include="Adapters\Tile.h" />
+    <ClInclude Include="Adapters\TileGraph.h" />
+    <ClInclude Include="Adapters\WallPacman.h" />
+    <ClInclude Include="Adapters\WallPacmanAdapter.h" />
+    <ClInclude Include="Decorator\BorderDecoratorWall.h" />
+    <ClInclude Include="Builder\BuilderClasico.h" />
+    <ClInclude Include="Builder\BuilderCartoon.h" />
+    <ClInclude Include="Builder\Builder.h" />
+    <ClInclude Include="Builder\Director.h" />
+    <ClInclude Include="Decorator\DecoratorWall.h" />
     <ClInclude Include="Entities\ClasicoEnemy.h" />
     <ClInclude Include="Entities\ClasicoPlayer.h" />
     <ClInclude Include="Const.h" />
@@ -205,19 +237,26 @@
     <ClInclude Include="Factories\FactoryGamePersonalizado.h" />
     <ClInclude Include="Factories\FactoryGameRealista.h" />
     <ClInclude Include="GameAITypes.h" />
+    <ClInclude Include="Scenes\GameLevelScene.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameTextures.h" />
+    <ClInclude Include="GameVersions.h" />
     <ClInclude Include="Managers\AssetManager.h" />
     <ClInclude Include="Managers\SceneManager.h" />
-    <ClInclude Include="Entities\Muro.h" />
-    <ClInclude Include="Entities\MuroPiedra.h" />
     <ClInclude Include="Scenes\GameOverScene.h" />
     <ClInclude Include="Scenes\LevelScene.h" />
     <ClInclude Include="Scenes\MenuScene.h" />
     <ClInclude Include="Scenes\Scene.h" />
     <ClInclude Include="Scenes\StageScene.h" />
+    <ClInclude Include="Entities\Soil.h" />
+    <ClInclude Include="Entities\SoilGrass.h" />
+    <ClInclude Include="Decorator\ShineDecoratorWall.h" />
     <ClInclude Include="system\KeyboardInput.h" />
     <ClInclude Include="Util\Pathfinding.h" />
+    <ClInclude Include="Entities\Wall.h" />
+    <ClInclude Include="Entities\WallMetal.h" />
+    <ClInclude Include="Entities\WallBrick.h" />
+    <ClInclude Include="Entities\WallStone.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\bomber.bmp" />

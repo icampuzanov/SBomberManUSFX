@@ -35,7 +35,7 @@ class Sprite : public GameGraphicObject
         * @param delta - time in ms
         */
     virtual void update(const unsigned int delta) override;
-
+ 
     protected:
     std::vector<std::shared_ptr<Animation>> animations; // array of animations
 };

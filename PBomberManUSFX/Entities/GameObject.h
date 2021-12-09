@@ -25,7 +25,7 @@ public:
 	// Metodos varios
 	//Metodos virtuales puros
 	//virtual void render() = 0;
-	virtual void render(const SDL_Rect& camera) const = 0;
+	virtual void render(const SDL_Rect& camera) = 0;
 	//virtual void update() = 0;
 	virtual void update(const unsigned int delta) = 0;
 	virtual void handleEvent(SDL_Event* _event) = 0;

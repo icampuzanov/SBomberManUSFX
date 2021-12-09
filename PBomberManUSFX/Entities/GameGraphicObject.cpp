@@ -64,18 +64,18 @@ void GameGraphicObject::setFlip(SDL_RendererFlip flip)
 
 void GameGraphicObject::update(const unsigned int /*delta*/) {}
 
-void GameGraphicObject::render(const SDL_Rect& camera) const
+void GameGraphicObject::render(const SDL_Rect& camera)
 {
     if(renderer != nullptr && texture != nullptr)
     {
         // change position according to camera
-        SDL_Rect destrinationRect = rect;
+        SDL_Rect destinationRect = rect;
         if(isAttachedToCamera)
         {
-            destrinationRect.x -= camera.x;
-            destrinationRect.y -= camera.y;
+            destinationRect.x -= camera.x;
+            destinationRect.y -= camera.y;
         }
         // render on the screen
-        SDL_RenderCopyEx(renderer, texture.get(), &clip, &destrinationRect, 0, nullptr, flipping);
+        SDL_RenderCopyEx(renderer, texture.get(), &clip, &destinationRect, 0, nullptr, flipping);
     }
 }

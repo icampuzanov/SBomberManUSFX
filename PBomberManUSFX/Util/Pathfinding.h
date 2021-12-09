@@ -21,7 +21,7 @@ struct Cell
     * @param dest - destination point
     * @return std::pair<int, int> - first cell to move
     */
-std::pair<int, int> findBestCell(Tile (&grid)[tileArrayHeight][tileArrayWidth],
+std::pair<int, int> findBestCell(GameTile (&grid)[tileArrayHeight][tileArrayWidth],
                                     const std::pair<int, int>& src, const std::pair<int, int>& dest);
 
 #endif // _BOMBERMAN_UTIL_PATHFINDING_H_

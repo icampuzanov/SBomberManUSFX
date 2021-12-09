@@ -14,9 +14,9 @@ bool isValid(const int row, const int column)
 }
 
 // check that cell is free
-bool isFreeCell(const Tile (&grid)[tileArrayHeight][tileArrayWidth], const int row, const int column)
+bool isFreeCell(const GameTile (&grid)[tileArrayHeight][tileArrayWidth], const int row, const int column)
 {
-    return grid[row][column] == Tile::Grass || grid[row][column] == Tile::EmptyGrass;
+    return grid[row][column] == GameTile::Grass || grid[row][column] == GameTile::EmptyGrass;
 }
 
 // check destination
@@ -52,7 +52,7 @@ std::pair<int, int> getFirstCell(Cell cellDetails[][tileArrayWidth], std::pair<i
     return path.top();
 }
 
-std::pair<int, int> findBestCell(Tile (&grid)[tileArrayHeight][tileArrayWidth],
+std::pair<int, int> findBestCell(GameTile (&grid)[tileArrayHeight][tileArrayWidth],
                                     const std::pair<int, int>& src, const std::pair<int, int>& dest)
 {
     const std::pair<int, int> ret_val_error = {-1, -1};

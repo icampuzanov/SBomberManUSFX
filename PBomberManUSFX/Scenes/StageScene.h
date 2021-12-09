@@ -6,6 +6,7 @@
 
 #include "../Entities/Text.h"
 #include "../Scenes/Scene.h"
+#include "../GameVersions.h"
 
 /**
     * @brief Stage Scene
@@ -19,19 +20,21 @@ class StageScene : public Scene
         *
         * @param game
         */
-    StageScene(GameManager* _gameManager, const unsigned int level, const unsigned int score);
+    StageScene(GameManager* _gameManager, const unsigned int _level, const unsigned int _score);
+    StageScene(GameManager* _gameManager, GameVersion _gameVersion, const unsigned int _level, const unsigned int _score);
     /**
         * @brief Trigger on update if scene is active
         *
         * @param delta - time in milliseconds
         */
-    virtual void update(const unsigned int delta) override;
+    virtual void update(const unsigned int _delta) override;
 
     private:
     // timer until switch to next menu
     int untilNextSceneTimer = 0;
     // const
     const int sceneTimer = 2000;
+    GameVersion gameVersion = GameVersion::GAMEVERSION_CLASIC;
     unsigned int stage = 0;
     unsigned int score = 0;
 };

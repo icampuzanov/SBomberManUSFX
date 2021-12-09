@@ -10,7 +10,7 @@ private:
 	Nodo<T>* siguiente;
 
 public:
-	Nodo(T _valor, Nodo<T>* _siguiente = NULL) {
+	Nodo(T _valor, Nodo<T>* _siguiente = nullptr) {
 		valor = _valor;
 		siguiente = _siguiente;
 	}
@@ -22,7 +22,7 @@ private:
 	Nodo<T>* primero;
 	Nodo<T>* ultimo;
 public:
-	Cola() : primero(NULL), ultimo(NULL) {}
+	Cola() : primero(nullptr), ultimo(nullptr) {}
 	~Cola();
 	void Push(T _valor);
 	T Pop();
@@ -66,7 +66,7 @@ T Cola<T>::Pop() {
 	delete nodoActual;
 
 	if (!primero) {
-		ultimo = NULL;
+		ultimo = nullptr;
 	}
 
 	return valorNodo;

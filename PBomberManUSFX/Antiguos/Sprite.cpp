@@ -9,7 +9,7 @@ Sprite::Sprite(std::shared_ptr<SDL_Texture> _texture, SDL_Renderer* _renderer)
 
     // get width and height of texture;
     int width, height;
-    SDL_QueryTexture(texture.get(), NULL, NULL, &width, &height);
+    SDL_QueryTexture(texture.get(), nullptr, nullptr, &width, &height);
     // set clip and rect
     clip.x = 0;
     clip.y = 0;

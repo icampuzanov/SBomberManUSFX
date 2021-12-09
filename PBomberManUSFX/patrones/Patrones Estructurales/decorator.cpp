@@ -10,9 +10,10 @@ class Widget
 
 class TextField: public Widget
 {
+private:
     // 3. "Core" class & "is a"
     int width, height;
-  public:
+ public:
     TextField(int w, int h)
     {
         width = w;
@@ -29,8 +30,9 @@ class TextField: public Widget
 // 2. 2nd level base class
 class Decorator: public Widget  // 4. "is a" relationship
 {
+private:
     Widget* wid; // 4. "has a" relationship
-  public:
+public:
     Decorator(Widget *w)
     {
         wid = w;
@@ -45,7 +47,7 @@ class Decorator: public Widget  // 4. "is a" relationship
 
 class BorderDecorator: public Decorator
 {
-  public:
+public:
     // 6. Optional embellishment
     BorderDecorator(Widget *w): Decorator(w){}
  
