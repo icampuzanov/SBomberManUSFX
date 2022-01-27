@@ -149,7 +149,7 @@ void LevelScene::spawnTextObjects()
     stageText->attachToCamera(false);
     addObject(stageText);
     backgroundObjectLastNumber++;
-    // vidas
+   /////////// vidas//////////////
      // text
     auto vidasText =
         std::make_shared<Text>(gameManager->getAssetManager()->getFont(), gameManager->getRenderer(), "VIDAS:");
@@ -755,6 +755,16 @@ void LevelScene::updateScore()
     scoreNumber->setPosition(gameManager->getWindowWidth() / 2 - scoreNumber->getWidth() / 2,
                                 scoreNumber->getPositionY());
 }
+void LevelScene::updateVidas()
+{
+    std::string vidasText = std::to_string(vidas);
+    vidasNumber->setText(vidasText);
+    vidasNumber->setSize(static_cast<int>(timerNumber->getWidth() / 3.0f) *
+        static_cast<int>(vidasText.size()),
+        vidasNumber->getHeight());
+    vidasNumber->setPosition(gameManager->getWindowWidth() / 2 - vidasNumber->getWidth() / 2,
+        vidasNumber->getPositionY());
+}
 
 void LevelScene::updatePlayerCollision()
 {
@@ -828,9 +838,11 @@ void LevelScene::updateEnemiesCollision()
             playerRect.h = static_cast<int>(playerRect.h * 0.2);
             if(isCollisionDetected(playerRect, enemy->getRect()))
             {
-                int vidas = 0;
-                vidas = vidas + 1;
-                if (vidas > 2) 
+                // Colision con enemigo
+                vidas--;
+                updateVidas();
+                continue;
+                if (vidas < 0)
                 {
                     // player killed by enemy
                     removeObject(player);
@@ -907,10 +919,15 @@ void LevelScene::updateBangsCollision()
             playerRect.h = static_cast<int>(playerRect.h * 0.2f);
             if(isCollisionDetected(playerRect, bang->getRect()))
             {
-
+               //// Colision con enemigo
+               // vidas--;  
+               // updateVidas();
+               // continue;
+               // if (vidas < 0)             
                 removeObject(player);
                 player = nullptr;
                 gameOver();
+               
             }
         }
     }

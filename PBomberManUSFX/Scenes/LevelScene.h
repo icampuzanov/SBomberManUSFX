@@ -109,6 +109,8 @@ private:
     void updateCamera();
     // score update
     void updateScore();
+    // vidas update
+    void updateVidas();
     // update collisions
     void updatePlayerCollision();
     void updateEnemiesCollision();
@@ -131,6 +133,8 @@ private:
     // const for score
     const unsigned int scoreRewardForKill = 200;
     const unsigned int scoreRewardForStage = 1000;
+    //const for vidas
+    const unsigned int vidasmenos = 1;
 
     std::shared_ptr<Music> menuMusic = nullptr;                       // menu music
     std::shared_ptr<Sound> gameoverSound = nullptr;                   // game over sound
@@ -164,6 +168,7 @@ private:
     unsigned int gameVersion = GAMEVERSION_CLASIC;
     unsigned int score = 0;
     unsigned int stage = 0;
+    unsigned int vidas = 3;
 
     // level positioning
     int fieldPositionX = 0;
