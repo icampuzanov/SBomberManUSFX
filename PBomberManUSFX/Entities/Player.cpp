@@ -4,7 +4,7 @@
 Player::Player(std::shared_ptr<SDL_Texture> _texture, SDL_Renderer* _renderer)
     : GameActor(_texture, _renderer)
 {
-    // movement animation
+    // movement animatio
     movement = std::make_shared<Animation>();
     movement->addAnimationEntity(AnimationEntity(0, 0, tileSize, tileSize));
     movement->addAnimationEntity(AnimationEntity(tileSize * 1, 0, tileSize, tileSize));
