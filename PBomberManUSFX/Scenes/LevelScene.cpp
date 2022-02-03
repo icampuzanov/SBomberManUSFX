@@ -957,6 +957,29 @@ void LevelScene::onEvent(const SDL_Event& event)
                 spawnBomb(player.get());
             }
         }
+        //SEGUNDA INSTANCIA
+        else if (event.key.keysym.scancode == SDL_SCANCODE_X)
+        {
+            escudo = escudo - 1;
+            updateEscudo();
+            if (escudo > 0)
+            {
+                generateEscudo();
+                escudito = true;
+            }
+            if (escudo < 1)
+            {
+                generateEscudo();
+                escudito = false;
+            }
+        }
+        else if (event.key.keysym.scancode == SDL_SCANCODE_C)
+        {
+          
+               generateEscudo();
+               escudito = false;
+          
+        }
         // we can pause a gameManager by pressing enter key
         else if(event.key.keysym.scancode == SDL_SCANCODE_RETURN)
         {
@@ -979,6 +1002,14 @@ void LevelScene::onEvent(const SDL_Event& event)
             gameOverTimer = winTimerStart;
         }
     }
+    /*if (event.type == SDL_KEYUP)
+    {
+        if (event.key.keysym.scancode == SDL_SCANCODE_X)
+        {
+            generateEscudo();
+            escudito = false;
+        }
+    }*/
 }
 
 void LevelScene::update(const unsigned int delta)
@@ -1243,6 +1274,10 @@ void LevelScene::updateEscudo()
         escudosNumber->getHeight());
     escudosNumber->setPosition(450, 10);
 }
+void LevelScene::generateEscudo()
+{
+    escudito == false;
+}
 
 void LevelScene::updatePlayerCollision()
 {
@@ -1256,6 +1291,7 @@ void LevelScene::updatePlayerCollision()
     {
         return;
     }
+   
     // set width to smaller size for easer pa th
     SDL_Rect playerRect = player->getRect();
     playerRect.w = static_cast<int>(playerRect.w * 0.5);
@@ -1412,7 +1448,11 @@ void LevelScene::updateEnemiesCollision()
             SDL_Rect playerRect = player->getRect();
             playerRect.w = static_cast<int>(playerRect.w * 0.2);
             playerRect.h = static_cast<int>(playerRect.h * 0.2);
-            if(isCollisionDetected(playerRect, enemy->getRect()))
+            /*if (escudito == true)
+            {
+                return;
+            }*/
+            if(isCollisionDetected(playerRect, enemy->getRect()) && escudito != true)
             {
                 vida = vida - 1;
                 std::cout << vida << std::endl;
@@ -1565,8 +1605,11 @@ void LevelScene::updateBangsCollision()
             playerRect.w = static_cast<int>(playerRect.w * 0.2f);
             playerRect.h = static_cast<int>(playerRect.h * 0.2f);
 
-
-            if (isCollisionDetected(playerRect, bang->getRect()))
+            //if (escudito == true)
+            //{
+            //  return;
+            //}
+            if(isCollisionDetected(playerRect, bang->getRect()) && escudito != true)
             {
                 vida = vida - 1;
                // std::cout << vida << std::endl;

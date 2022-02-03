@@ -73,6 +73,7 @@ public:
     int vida = 3;
     //SEGUNDA INSTANCIA - ESCUDO
     int escudo = 3;
+    bool escudito = false;
 
 private:
     
@@ -103,6 +104,11 @@ private:
     void spawnDoorItemAT(GameGraphicObject* object);
     void spawnDoorItemTort(GameGraphicObject* object);
     void spawnDoorItemVD(GameGraphicObject* object);
+
+    //SEGUNDA INSTANCIA
+    void generateEscudo();
+   
+    void updateEscudo();
 
     /**
         * @brief Finish level
@@ -135,8 +141,6 @@ private:
     void updateScore();
     // vida update
     void updateVida();
-    //SEGUNDA INSTANCIA 
-    void updateEscudo();
     // update collisions
     void updatePlayerCollision();
     void updateEnemiesCollision();
