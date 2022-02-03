@@ -6,7 +6,7 @@
 
 #include "../Entities/Text.h"
 #include "../Scenes/Scene.h"
-#include "../GameVersions.h"
+#include "../Skins.h"
 
 /**
     * @brief Stage Scene
@@ -20,8 +20,9 @@ class StageScene : public Scene
         *
         * @param game
         */
+
     StageScene(GameManager* _gameManager, const unsigned int _level, const unsigned int _score);
-    StageScene(GameManager* _gameManager, GameVersion _gameVersion, const unsigned int _level, const unsigned int _score);
+    StageScene(GameManager* _gameManager, Skin _skin, const unsigned int _level, const unsigned int _score);
     /**
         * @brief Trigger on update if scene is active
         *
@@ -34,7 +35,9 @@ class StageScene : public Scene
     int untilNextSceneTimer = 0;
     // const
     const int sceneTimer = 2000;
-    GameVersion gameVersion = GameVersion::GAMEVERSION_CLASIC;
+
+    
+    Skin skin = Skin::SKIN_JOSH;
     unsigned int stage = 0;
     unsigned int score = 0;
 };

@@ -8,7 +8,7 @@ FactoryGameClasico::FactoryGameClasico() {
 std::shared_ptr<GameObject> FactoryGameClasico::CreatePlayer(const int _positionX, const int _positionY)
 {
     // spawn player
-    auto player = std::make_shared<ClasicoPlayer>(gameManager->getAssetManager()->getTexture(GameTexture::Player), gameManager->getRenderer());
+    auto player = std::make_shared<ClasicoPlayer>(gameManager->getAssetManager()->getTexture(GameTexture::Player2), gameManager->getRenderer());
     player->setPosition(_positionX, _positionY);
     player->setSize(scaledTileSize, scaledTileSize);
     player->setClip(tileSize, tileSize, tileSize * 4, 0);

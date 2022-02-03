@@ -17,6 +17,7 @@ MenuItem& operator++(MenuItem& c)
     return c;
 }
 
+
 // --decrement for menu id
 MenuItem& operator--(MenuItem& c)
 {
@@ -46,49 +47,54 @@ MenuItem operator--(MenuItem& c, int)
 MenuScene::MenuScene(GameManager* _gameManager) : Scene(_gameManager)
 {
     // background
-    auto background = std::make_shared<Sprite>(gameManager->getAssetManager()->getTexture(GameTexture::MenuBack), gameManager->getRenderer());
+    auto background = std::make_shared<Sprite>(gameManager->getAssetManager()->getTexture(GameTexture::Skins), gameManager->getRenderer());
     
-    background->setPosition(30, 20);
+    background->setPosition(0, 0);
     
-    background->setSize(gameManager->getWindowWidth() - 60,  static_cast<int>(gameManager->getWindowHeight() / 1.5f) - 20);
+    background->setSize(gameManager->getWindowWidth(),  gameManager->getWindowHeight());
     addObject(background);
 
-    // start menu
-   /* startText = std::make_shared<Text>(gameManager->getAssetManager()->getFont(), gameManager->getRenderer(), "INICIO");
-    startText->setColor(colorPressed);
-    startText->setSize(static_cast<int>(gameManager->getWindowWidth() / 4.0f), static_cast<int>(gameManager->getWindowHeight() / 20.0f));
-    startText->setPosition(static_cast<int>(gameManager->getWindowWidth() / 2.0f - startText->getWidth() / 2.0f), background->getHeight() + 60);
-    addObject(startText);*/
+    startPlayer1Text = std::make_shared<Text>(gameManager->getAssetManager()->getFont1(), gameManager->getRenderer(), "Josh");
+    startPlayer1Text->setColor(colorPressed);
+    startPlayer1Text->setSize(84.77, 24.71);
+    startPlayer1Text->setPosition(105, 288.11);
+    addObject(startPlayer1Text);
 
-    startCartoonText = std::make_shared<Text>(gameManager->getAssetManager()->getFont(), gameManager->getRenderer(), "CARTOON");
-    startCartoonText->setColor(colorPressed);
-    startCartoonText->setSize(static_cast<int>(gameManager->getWindowWidth() / 4.0f), static_cast<int>(gameManager->getWindowHeight() / 20.0f));
-    startCartoonText->setPosition(static_cast<int>(gameManager->getWindowWidth() / 2.0f - startCartoonText->getWidth() / 2.0f), background->getHeight() + 20);
-    addObject(startCartoonText);
+    startPlayer2Text = std::make_shared<Text>(gameManager->getAssetManager()->getFont1(), gameManager->getRenderer(), "The Classic One");
+    startPlayer2Text->setColor(colorStandard);
+    startPlayer2Text->setSize(302, 24.71);
+    startPlayer2Text->setPosition(244.7, 288.11);
+    addObject(startPlayer2Text);
 
-    startClasicText = std::make_shared<Text>(gameManager->getAssetManager()->getFont(), gameManager->getRenderer(), "CLASICO");
-    startClasicText->setColor(colorStandard);
-    startClasicText->setSize(static_cast<int>(gameManager->getWindowWidth() / 4.0f), static_cast<int>(gameManager->getWindowHeight() / 20.0f));
-    startClasicText->setPosition(static_cast<int>(gameManager->getWindowWidth() / 2.0f - startCartoonText->getWidth() / 2.0f), background->getHeight() + 50);
-    addObject(startClasicText);
-   
-    startCustomText = std::make_shared<Text>(gameManager->getAssetManager()->getFont(), gameManager->getRenderer(), "CUSTOM");
-    startCustomText->setColor(colorStandard);
-    startCustomText->setSize(static_cast<int>(gameManager->getWindowWidth() / 4.0f), static_cast<int>(gameManager->getWindowHeight() / 20.0f));
-    startCustomText->setPosition(static_cast<int>(gameManager->getWindowWidth() / 2.0f - startClasicText->getWidth() / 2.0f), background->getHeight() + 80);
-    addObject(startCustomText);
+    startPlayer3Text = std::make_shared<Text>(gameManager->getAssetManager()->getFont1(), gameManager->getRenderer(), "Tyler");
+    startPlayer3Text->setColor(colorStandard);
+    startPlayer3Text->setSize(103.77, 24.71);
+    startPlayer3Text->setPosition(592, 288.11);
+    addObject(startPlayer3Text);
 
-    startRealisticText = std::make_shared<Text>(gameManager->getAssetManager()->getFont(), gameManager->getRenderer(), "REAL");
-    startRealisticText->setColor(colorStandard);
-    startRealisticText->setSize(static_cast<int>(gameManager->getWindowWidth() / 7.0f), static_cast<int>(gameManager->getWindowHeight() / 20.0f));
-    startRealisticText->setPosition(static_cast<int>(gameManager->getWindowWidth() / 2.0f - startCustomText->getWidth() / 2.0f), background->getHeight() + 110);
-    addObject(startRealisticText);
+    startPlayer4Text = std::make_shared<Text>(gameManager->getAssetManager()->getFont1(), gameManager->getRenderer(), "Bruno");
+    startPlayer4Text->setColor(colorStandard);
+    startPlayer4Text->setSize(105.18, 24.71);
+    startPlayer4Text->setPosition(98, 541.11);
+    addObject(startPlayer4Text);
+
+    startPlayer5Text = std::make_shared<Text>(gameManager->getAssetManager()->getFont1(), gameManager->getRenderer(), "The King");
+    startPlayer5Text->setColor(colorStandard);
+    startPlayer5Text->setSize(160.77, 24.71);
+    startPlayer5Text->setPosition(312, 541.11);
+    addObject(startPlayer5Text);
+
+    startPlayer6Text = std::make_shared<Text>(gameManager->getAssetManager()->getFont1(), gameManager->getRenderer(), "Jass");
+    startPlayer6Text->setColor(colorStandard);
+    startPlayer6Text->setSize(84.77, 24.71);
+    startPlayer6Text->setPosition(600, 541.11);
+    addObject(startPlayer6Text);
 
     // exit menu
-    exitText = std::make_shared<Text>(gameManager->getAssetManager()->getFont(), gameManager->getRenderer(), "SALIR");
-    exitText->setSize(static_cast<int>(gameManager->getWindowWidth() / 5.0f), static_cast<int>(gameManager->getWindowHeight() / 20.0f));
-    exitText->setPosition(startCartoonText->getPositionX(), startCustomText->getPositionY() + exitText->getHeight() + 40);
-    addObject(exitText);
+    /*exitText = std::make_shared<Text>(gameManager->getAssetManager()->getFont1(), gameManager->getRenderer(), "SALIR");
+    exitText->setSize(90, 24.71);
+    exitText->setPosition(350,570);
+    addObject(exitText);*/
 
     gameManager->getSceneManager()->addScene("gameover", std::make_shared<GameOverScene>(gameManager));
     // menu music
@@ -138,30 +144,40 @@ void MenuScene::onEvent(const SDL_Event& event)
 void MenuScene::onMenuItemSelect()
 {
     // reset menu items color
-    startCartoonText->setColor(colorStandard);
-    startClasicText->setColor(colorStandard);
-    startCustomText->setColor(colorStandard);
-    startRealisticText->setColor(colorStandard);
+    startPlayer1Text->setColor(colorStandard);
+    startPlayer2Text->setColor(colorStandard);
+    startPlayer3Text->setColor(colorStandard);
+    startPlayer4Text->setColor(colorStandard);
+    startPlayer5Text->setColor(colorStandard);
+    startPlayer6Text->setColor(colorStandard);
 
-    exitText->setColor(colorStandard);
+    /*exitText->setColor(colorStandard);*/
+
     // change color of selected menu item
     switch(currentSelectedMenu)
     {
-        case MenuItem::StartCartoon:
-            startCartoonText->setColor(colorPressed);
+        case MenuItem::StartPlayer1:
+            startPlayer1Text->setColor(colorPressed);
             break;
-        case MenuItem::StartClasic:
-            startClasicText->setColor(colorPressed);
+        case MenuItem::StartPlayer2:
+            startPlayer2Text->setColor(colorPressed);
             break;
-        case MenuItem::StartCustom:
-            startCustomText->setColor(colorPressed);
+        case MenuItem::StartPlayer3:
+            startPlayer3Text->setColor(colorPressed);
             break;
-        case MenuItem::StartRealistic:
-            startRealisticText->setColor(colorPressed);
+        case MenuItem::StartPlayer4:
+            startPlayer4Text->setColor(colorPressed);
             break;
-        case MenuItem::Exit:
+        case MenuItem::StartPlayer5:
+            startPlayer5Text->setColor(colorPressed);
+            break;
+        case MenuItem::StartPlayer6:
+            startPlayer6Text->setColor(colorPressed);
+            break;
+
+        /*case MenuItem::Exit:
             exitText->setColor(colorPressed);
-            break;
+            break;*/
         default:
             break;
     }
@@ -171,30 +187,46 @@ void MenuScene::onMenuItemPress()
 {
     switch(currentSelectedMenu)
     {
-        case MenuItem::StartCartoon:
+        case MenuItem::StartPlayer1:
             // go to level scene
-            gameManager->getSceneManager()->addScene("stage", std::make_shared<StageScene>(gameManager, GameVersion::GAMEVERSION_CARTOON, 1, 0));
+            gameManager->getSceneManager()->addScene("stage", std::make_shared<StageScene>(gameManager, Skin::SKIN_JOSH, 1, 0));
             gameManager->getSceneManager()->activateScene("stage");
             break;
-        case MenuItem::StartClasic:
+
+        case MenuItem::StartPlayer2:
             // go to level scene
-            gameManager->getSceneManager()->addScene("stage", std::make_shared<StageScene>(gameManager, GameVersion::GAMEVERSION_CLASIC, 1, 0));
+            gameManager->getSceneManager()->addScene("stage", std::make_shared<StageScene>(gameManager, Skin::SKIN_CLASSIC, 1, 0));
             gameManager->getSceneManager()->activateScene("stage");
             break;
-        case MenuItem::StartCustom:
+
+        case MenuItem::StartPlayer3:
             // go to level scene
-            gameManager->getSceneManager()->addScene("stage", std::make_shared<StageScene>(gameManager, GameVersion::GAMEVERSION_CUSTOM, 1, 0));
+            gameManager->getSceneManager()->addScene("stage", std::make_shared<StageScene>(gameManager, Skin::SKIN_TYLER, 1, 0));
             gameManager->getSceneManager()->activateScene("stage");
             break;
-        case MenuItem::StartRealistic:
+
+        case MenuItem::StartPlayer4:
             // go to level scene
-            gameManager->getSceneManager()->addScene("stage", std::make_shared<StageScene>(gameManager, GameVersion::GAMEVERSION_REALISTIC, 1, 0));
+            gameManager->getSceneManager()->addScene("stage", std::make_shared<StageScene>(gameManager, Skin::SKIN_BRUNO, 1, 0));
             gameManager->getSceneManager()->activateScene("stage");
             break;
-        case MenuItem::Exit:
+
+        case MenuItem::StartPlayer5:
+            // go to level scene
+            gameManager->getSceneManager()->addScene("stage", std::make_shared<StageScene>(gameManager, Skin::SKIN_KING, 1, 0));
+            gameManager->getSceneManager()->activateScene("stage");
+            break;
+
+        case MenuItem::StartPlayer6:
+            // go to level scene
+            gameManager->getSceneManager()->addScene("stage", std::make_shared<StageScene>(gameManager, Skin::SKIN_JASS, 1, 0));
+            gameManager->getSceneManager()->activateScene("stage");
+            break;
+        
+       /* case MenuItem::Exit:*/
             // stop gameManager loop
-            gameManager->stop();
-            break;
+            /*gameManager->stop();*/
+            ///*break;*/
         default:
             break;
     }

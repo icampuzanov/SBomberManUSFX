@@ -23,6 +23,6 @@ void GameOverScene::update(const unsigned int delta)
     if(untilNextSceneTimer >= sceneTimer)
     {
         untilNextSceneTimer = 0;
-        gameManager->getSceneManager()->activateScene("menu");
+        gameManager->getSceneManager()->activateScene("inicio");
     }
 }

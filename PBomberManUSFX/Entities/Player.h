@@ -27,6 +27,7 @@ class Player : public GameActor
     public:
 
         KeyboardInput* keyboardInputp;
+        float speed = 0.004f;
 
     /**
         * @brief Create player
@@ -63,7 +64,7 @@ class Player : public GameActor
     std::shared_ptr<Animation> movement;                           // movement animation
 
 protected:
-    float speed = 0.004f;
+    
 };
 
 #endif // _BOMBERMAN_ENTITIES_PLAYER_H_

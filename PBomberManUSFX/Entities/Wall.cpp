@@ -26,7 +26,7 @@ void Wall::update(const unsigned int delta)
 void Wall::render(const SDL_Rect& camera) 
 {
     GameActor::render(camera);
-    std::cout << "Dentro de  Wall" << std::endl;
+    //std::cout << "Dentro de  Wall" << std::endl;
 }
 
 

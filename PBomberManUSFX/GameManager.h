@@ -17,7 +17,7 @@ class GameManager
     // SDL2 C pointers
     SDL_Window* window = nullptr;
     SDL_Renderer* renderer = nullptr;
-
+    
     SceneManager* sceneManager = nullptr; // scene manager
     AssetManager* assetManager = nullptr; // asset manager
 

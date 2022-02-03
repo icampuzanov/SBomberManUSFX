@@ -29,13 +29,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -48,7 +48,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -149,6 +149,7 @@
     <ClCompile Include="Adapters\TileGraph.cpp" />
     <ClCompile Include="Adapters\WallPacman.cpp" />
     <ClCompile Include="Adapters\WallPacmanAdapter.cpp" />
+    <ClCompile Include="Scenes\CreditsScene.cpp" />
     <ClCompile Include="Decorator\BorderDecoratorWall.cpp" />
     <ClCompile Include="Builder\BuilderClasico.cpp" />
     <ClCompile Include="Builder\BuilderCartoon.cpp" />
@@ -178,11 +179,12 @@
     <ClCompile Include="Factories\FactoryGameClasico.cpp" />
     <ClCompile Include="Factories\FactoryGamePersonalizado.cpp" />
     <ClCompile Include="Factories\FactoryGameRealista.cpp" />
+    <ClCompile Include="Entities\Item.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Scenes\GameLevelScene.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Managers\AssetManager.cpp" />
     <ClCompile Include="Managers\SceneManager.cpp" />
+    <ClCompile Include="Scenes\MenuInicioScene.cpp" />
     <ClCompile Include="Scenes\GameOverScene.cpp" />
     <ClCompile Include="Scenes\LevelScene.cpp" />
     <ClCompile Include="Scenes\MenuScene.cpp" />
@@ -197,6 +199,7 @@
     <ClCompile Include="Entities\WallMetal.cpp" />
     <ClCompile Include="Entities\WallBrick.cpp" />
     <ClCompile Include="Entities\WallStone.cpp" />
+    <ClCompile Include="Scenes\YouWinScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adapters\GameObjectPacman.h" />
@@ -206,6 +209,7 @@
     <ClInclude Include="Adapters\TileGraph.h" />
     <ClInclude Include="Adapters\WallPacman.h" />
     <ClInclude Include="Adapters\WallPacmanAdapter.h" />
+    <ClInclude Include="Scenes\CreditsScene.h" />
     <ClInclude Include="Decorator\BorderDecoratorWall.h" />
     <ClInclude Include="Builder\BuilderClasico.h" />
     <ClInclude Include="Builder\BuilderCartoon.h" />
@@ -237,10 +241,12 @@
     <ClInclude Include="Factories\FactoryGamePersonalizado.h" />
     <ClInclude Include="Factories\FactoryGameRealista.h" />
     <ClInclude Include="GameAITypes.h" />
-    <ClInclude Include="Scenes\GameLevelScene.h" />
+    <ClInclude Include="Entities\Item.h" />
+    <ClInclude Include="Scenes\MenuInicioScene.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameTextures.h" />
-    <ClInclude Include="GameVersions.h" />
+    <ClInclude Include="Skins.h" />
     <ClInclude Include="Managers\AssetManager.h" />
     <ClInclude Include="Managers\SceneManager.h" />
     <ClInclude Include="Scenes\GameOverScene.h" />
@@ -257,9 +263,13 @@
     <ClInclude Include="Entities\WallMetal.h" />
     <ClInclude Include="Entities\WallBrick.h" />
     <ClInclude Include="Entities\WallStone.h" />
+    <ClInclude Include="Scenes\YouWinScene.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\bomber.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PBomberManUSFX.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

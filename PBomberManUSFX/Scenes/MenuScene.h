@@ -6,7 +6,7 @@
 #include "../Entities/Music.h"
 #include "../Entities/Text.h"
 #include "../Scenes/Scene.h"
-#include "../GameVersions.h"
+#include "../Skins.h"
 /**
     * @brief Menu id
     *
@@ -14,10 +14,12 @@
 enum class MenuItem
 {
     None,
-    StartCartoon,
-    StartClasic,
-    StartCustom,
-    StartRealistic,
+    StartPlayer1,
+    StartPlayer2,
+    StartPlayer3,
+    StartPlayer4,
+    StartPlayer5,
+    StartPlayer6,
     Exit,
     Last
 };
@@ -66,16 +68,18 @@ class MenuScene : public Scene
     //std::shared_ptr<Text> startText = nullptr;      // menu start
     //Text* startText = nullptr; Es lo mismo que la linea anterior
     
-    std::shared_ptr<Text> startCartoonText = nullptr;      // menu start cartoon
-    std::shared_ptr<Text> startClasicText = nullptr;      // menu start clasic
-    std::shared_ptr<Text> startCustomText = nullptr;      // menu start custom
-    std::shared_ptr<Text> startRealisticText = nullptr;      // menu start realistic
+    std::shared_ptr<Text> startPlayer1Text = nullptr;      // menu start payer1
+    std::shared_ptr<Text> startPlayer2Text = nullptr;      // menu start payer1
+    std::shared_ptr<Text> startPlayer3Text = nullptr;      // menu start payer1
+    std::shared_ptr<Text> startPlayer4Text = nullptr;      // menu start payer1
+    std::shared_ptr<Text> startPlayer5Text = nullptr;      // menu start payer1
+    std::shared_ptr<Text> startPlayer6Text = nullptr;      // menu start payer1
     std::shared_ptr<Text> exitText = nullptr;       // menu exit
     std::shared_ptr<Music> menuMusic = nullptr;     // menu music
-    MenuItem currentSelectedMenu = MenuItem::StartCartoon; // current selected menu
+    MenuItem currentSelectedMenu = MenuItem::StartPlayer1; // current selected menu
 
     // const colors for menu selection
     const SDL_Color colorStandard = {255, 255, 255, 255};
-    const SDL_Color colorPressed = {66, 134, 244, 255};
+    const SDL_Color colorPressed = { 224, 30, 55, 255};
 };
 

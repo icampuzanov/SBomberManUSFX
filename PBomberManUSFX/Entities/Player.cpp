@@ -4,7 +4,7 @@
 Player::Player(std::shared_ptr<SDL_Texture> _texture, SDL_Renderer* _renderer)
     : GameActor(_texture, _renderer)
 {
-    // movement animatio
+    // movement animation
     movement = std::make_shared<Animation>();
     movement->addAnimationEntity(AnimationEntity(0, 0, tileSize, tileSize));
     movement->addAnimationEntity(AnimationEntity(tileSize * 1, 0, tileSize, tileSize));
@@ -18,7 +18,7 @@ Player::Player(std::shared_ptr<SDL_Texture> _texture, SDL_Renderer* _renderer)
     addAnimation(movement);
 
     keyboardInputp = KeyboardInput::Instance();
-    std::cout << keyboardInputp << std::endl;
+    //std::cout << keyboardInputp << std::endl;
 
 }
 

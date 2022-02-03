@@ -7,6 +7,8 @@
 #include "GameManager.h"
 #include "./Scenes/LevelScene.h"
 #include "./Scenes/MenuScene.h"
+#include "./Scenes/MenuInicioScene.h"
+#include "./Scenes/YouWinScene.h"
 
 
 GameManager* GameManager::instance = nullptr;
@@ -119,10 +121,13 @@ void GameManager::execute()
 
     // load assets
     assetManager->load(renderer);
+    //create menu inicio //se activa desde ahi cuando es la escena que inicia
+    sceneManager->addScene("inicio", std::make_shared<MenuInicioScene>(this));
+    sceneManager->activateScene("inicio");
     // create menu scene
-    sceneManager->addScene("menu", std::make_shared<MenuScene>(this));
-    sceneManager->activateScene("menu");
-
+    //sceneManager->addScene("menu", std::make_shared<MenuScene>(this));
+    //sceneManager->activateScene("menu");
+    sceneManager->addScene("you win", std::make_shared<YouWinScene>(this));
     SDL_Event event;
 
     while(isRunning)
